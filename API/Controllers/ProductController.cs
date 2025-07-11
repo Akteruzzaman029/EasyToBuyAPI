@@ -54,7 +54,7 @@ namespace API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("GetAllProducts")]
+        [HttpPost("GetAllProducts")]
         public async Task<IActionResult> GetDistinctProduct([FromBody] ProductFilterDto searchModel)
         {
             var result = await _ProductRepository.GetDistinctProducts(searchModel);
