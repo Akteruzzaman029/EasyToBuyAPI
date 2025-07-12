@@ -80,6 +80,10 @@ namespace Persistence.Repository
         public async Task<List<MeasurementUnitResponseDto>> GetMeasurementUnitsByName(MeasurementUnitRequestDto insertRequestModel)
         {
             DynamicParameters p = new DynamicParameters();
+            p.Add("CompanyId", insertRequestModel.CompanyId);
+            p.Add("UnitName", insertRequestModel.UnitName);
+            p.Add("Symbol", insertRequestModel.Symbol);
+            p.Add("UnitType", insertRequestModel.UnitType);
             var output = await _dataAccessHelper.QueryData<MeasurementUnitResponseDto, dynamic>("USP_MeasurementUnit_GetMeasurementUnitsByName", p);
             return output;
         }

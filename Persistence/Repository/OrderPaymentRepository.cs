@@ -83,6 +83,10 @@ namespace Persistence.Repository
         public async Task<List<OrderPaymentResponseDto>> GetOrderPaymentsByName(OrderPaymentRequestDto insertRequestModel)
         {
             DynamicParameters p = new DynamicParameters();
+            p.Add("CompanyId", insertRequestModel.CompanyId);
+            p.Add("OrderId", insertRequestModel.OrderId);
+            p.Add("PaymentMethod", insertRequestModel.PaymentMethod);
+            p.Add("Reference", insertRequestModel.Reference);
             var output = await _dataAccessHelper.QueryData<OrderPaymentResponseDto, dynamic>("USP_OrderPayment_GetOrderPaymentsByName", p);
             return output;
         }

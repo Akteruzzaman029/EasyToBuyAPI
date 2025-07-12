@@ -76,6 +76,10 @@ namespace Persistence.Repository
         public async Task<List<OrderItemResponseDto>> GetOrderItemsByName(OrderItemRequestDto insertRequestModel)
         {
             DynamicParameters p = new DynamicParameters();
+            p.Add("OrderId", insertRequestModel.OrderId);
+            p.Add("ProductId", insertRequestModel.ProductId);
+            p.Add("Quantity", insertRequestModel.Quantity);
+
             var output = await _dataAccessHelper.QueryData<OrderItemResponseDto, dynamic>("USP_OrderItem_GetOrderItemsByName", p);
             return output;
         }

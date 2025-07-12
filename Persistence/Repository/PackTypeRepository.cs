@@ -78,6 +78,8 @@ namespace Persistence.Repository
         public async Task<List<PackTypeResponseDto>> GetPackTypesByName(PackTypeRequestDto insertRequestModel)
         {
             DynamicParameters p = new DynamicParameters();
+            p.Add("CompanyId", insertRequestModel.CompanyId);
+            p.Add("Name", insertRequestModel.Name);
             var output = await _dataAccessHelper.QueryData<PackTypeResponseDto, dynamic>("USP_PackType_GetPackTypesByName", p);
             return output;
         }

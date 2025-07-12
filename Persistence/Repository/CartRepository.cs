@@ -80,6 +80,11 @@ namespace Persistence.Repository
         public async Task<List<CartResponseDto>> GetCartsByName(CartRequestDto insertRequestModel)
         {
             DynamicParameters p = new DynamicParameters();
+            p.Add("CompanyId", insertRequestModel.CompanyId);
+            p.Add("UserId", insertRequestModel.UserId);
+            p.Add("GuestId", insertRequestModel.GuestId);
+            p.Add("CartType", insertRequestModel.CartType);
+            p.Add("ProductId", insertRequestModel.ProductId);
             var output = await _dataAccessHelper.QueryData<CartResponseDto, dynamic>("USP_Cart_GetCartsByName", p);
             return output;
         }

@@ -88,6 +88,13 @@ namespace Persistence.Repository
         public async Task<List<ProductResponseDto>> GetProductsByName(ProductRequestDto insertRequestModel)
         {
             DynamicParameters p = new DynamicParameters();
+            p.Add("CompanyId", insertRequestModel.CompanyId);
+            p.Add("CategoryId", insertRequestModel.CategoryId);
+            p.Add("SubCategoryId", insertRequestModel.SubCategoryId);
+            p.Add("MeasurementUnitId", insertRequestModel.MeasurementUnitId);
+            p.Add("PackTypeId", insertRequestModel.PackTypeId);
+            p.Add("ModelNo", insertRequestModel.ModelNo);
+            p.Add("Name", insertRequestModel.Name);
             var output = await _dataAccessHelper.QueryData<ProductResponseDto, dynamic>("USP_Product_GetProductsByName", p);
             return output;
         }
