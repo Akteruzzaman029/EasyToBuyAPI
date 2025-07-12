@@ -74,6 +74,9 @@ namespace Persistence.Repository
         public async Task<List<StatusMasterResponseDto>> GetStatusMastersByName(StatusMasterRequestDto insertRequestModel)
         {
             DynamicParameters p = new DynamicParameters();
+            p.Add("StatusGroup", insertRequestModel.StatusGroup);
+            p.Add("StatusCode", insertRequestModel.StatusCode);
+            p.Add("StatusName", insertRequestModel.StatusName);
             var output = await _dataAccessHelper.QueryData<StatusMasterResponseDto, dynamic>("USP_StatusMaster_GetStatusMastersByName", p);
             return output;
         }
