@@ -144,6 +144,11 @@ builder.Services.AddScoped<IBookingCheckListRepository, BookingCheckListReposito
 builder.Services.AddScoped<IPackageRepository, PackageRepository>();
 builder.Services.AddScoped<IMeasurementUnitRepository , MeasurementUnitRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICartRepository, CartRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
+builder.Services.AddScoped<IOrderPaymentRepository, OrderPaymentRepository>();
+builder.Services.AddScoped<IStatusMasterRepository, StatusMasterRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

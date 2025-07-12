@@ -12,10 +12,14 @@ namespace Core.Model
         public int ModelNo { get; set; }
         public decimal PurchasePrice { get; set; }
         public decimal VAT { get; set; }
-        public string Name { get; set; }
-        public string ShortName { get; set; }
-        public string Description { get; set; }
-        public bool? IsConsider { get; set; }
-        public bool? IsBarCode { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string? ShortName { get; set; }
+        public string Description { get; set; } = string.Empty;
+        public bool? IsConsider { get; set; }       // Nullable in SQL
+        public bool? IsBarCode { get; set; }        // Nullable in SQL
+        public int FileId { get; set; } = 0;
+        public int Stock { get; set; } = 0;
+        public bool IsFixedAmount { get; set; }
+        public decimal Discount { get; set; } = 0;
     }
 }
