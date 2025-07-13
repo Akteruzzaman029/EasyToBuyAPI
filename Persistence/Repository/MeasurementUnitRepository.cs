@@ -23,8 +23,6 @@ namespace Persistence.Repository
 
             try
             {
-                //var startDate = searchModel.StartDate.ToString("yyyy-MM-dd");
-                //var endDate = searchModel.EndDate.ToString("yyyy-MM-dd");
                 DynamicParameters p = new DynamicParameters();
                 p.Add("CompanyId", searchModel.CompanyId);
                 p.Add("UnitName", searchModel.UnitName);
@@ -82,7 +80,6 @@ namespace Persistence.Repository
             DynamicParameters p = new DynamicParameters();
             p.Add("CompanyId", insertRequestModel.CompanyId);
             p.Add("UnitName", insertRequestModel.UnitName);
-            p.Add("Symbol", insertRequestModel.Symbol);
             p.Add("UnitType", insertRequestModel.UnitType);
             var output = await _dataAccessHelper.QueryData<MeasurementUnitResponseDto, dynamic>("USP_MeasurementUnit_GetMeasurementUnitsByName", p);
             return output;

@@ -63,10 +63,15 @@ namespace Persistence.Repository
 
         public async Task<List<OrderPaymentResponseDto>> GetDistinctOrderPayments(OrderPaymentFilterDto searchModel)
         {
+            var startDate = searchModel.StartDate.ToString("yyyy-MM-dd");
+            var endDate = searchModel.EndDate.ToString("yyyy-MM-dd");
             DynamicParameters p = new DynamicParameters();
+            p.Add("StartDate", startDate);
+            p.Add("EndDate", endDate);
             p.Add("CompanyId", searchModel.CompanyId);
             p.Add("OrderNo", searchModel.OrderNo);
             p.Add("Reference", searchModel.Reference);
+            p.Add("PaymentStatus", searchModel.PaymentStatus);
 
             var output = await _dataAccessHelper.QueryData<OrderPaymentResponseDto, dynamic>("USP_OrderPayment_GetDistinct", p);
 

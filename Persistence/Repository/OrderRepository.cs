@@ -82,6 +82,9 @@ namespace Persistence.Repository
         public async Task<List<OrderResponseDto>> GetOrdersByName(OrderRequestDto insertRequestModel)
         {
             DynamicParameters p = new DynamicParameters();
+            p.Add("CompanyId", insertRequestModel.CompanyId);
+            p.Add("OrderNo", insertRequestModel.OrderNo);
+            p.Add("OrderStatus", insertRequestModel.OrderStatus);
             var output = await _dataAccessHelper.QueryData<OrderResponseDto, dynamic>("USP_Order_GetOrdersByName", p);
             return output;
         }
@@ -97,7 +100,6 @@ namespace Persistence.Repository
             p.Add("OrderStatus", insertRequestModel.OrderStatus);
             p.Add("TotalAmount", insertRequestModel.TotalAmount);
             p.Add("TotalDiscount", insertRequestModel.TotalDiscount);
-            p.Add("OrderStatus", insertRequestModel.OrderStatus);
             p.Add("Remarks", insertRequestModel.Remarks);
             p.Add("IsActive", insertRequestModel.IsActive);
 
@@ -115,7 +117,6 @@ namespace Persistence.Repository
             p.Add("OrderStatus", insertRequestModel.OrderStatus);
             p.Add("TotalAmount", insertRequestModel.TotalAmount);
             p.Add("TotalDiscount", insertRequestModel.TotalDiscount);
-            p.Add("OrderStatus", insertRequestModel.OrderStatus);
             p.Add("Remarks", insertRequestModel.Remarks);
             p.Add("IsActive", insertRequestModel.IsActive);
 
