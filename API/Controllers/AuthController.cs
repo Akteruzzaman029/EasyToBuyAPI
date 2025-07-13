@@ -102,6 +102,7 @@ namespace API.Controllers
                     token.Type= user.Type;
                     token.UserName = user.FullName;
                     token.UserId= user.Id;
+                    token.CompanyId= user.CompanyId;
                     await _authRepository.UpdateRefreshToken(userInfo.Id, token);
                     _responseDto.Data = token;
                     _responseDto.StatusCode = 200;
@@ -152,6 +153,7 @@ namespace API.Controllers
                     token.Type = user.Type;
                     token.UserName = user.FullName;
                     token.UserId = user.Id;
+                    token.CompanyId= user.CompanyId;
                     await _authRepository.UpdateRefreshToken(userInfo.Id, token);
                     _responseDto.Data = token;
                     _responseDto.StatusCode = 200;

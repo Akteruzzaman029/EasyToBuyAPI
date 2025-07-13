@@ -9,5 +9,6 @@
         public DateTime RefreshTokenExpires { get; set; }
         public string UserId { get; set; } = string.Empty;
         public int Type { get; set; }
+        public int CompanyId { get; set; }
     }
 }

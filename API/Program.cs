@@ -142,6 +142,7 @@ builder.Services.AddScoped<IExpenditureRepository, ExpenditureRepository>();
 builder.Services.AddScoped<ICheckListRepository, CheckListRepository>();
 builder.Services.AddScoped<IBookingCheckListRepository, BookingCheckListRepository>();
 builder.Services.AddScoped<IPackageRepository, PackageRepository>();
+builder.Services.AddScoped<IPackTypeRepository, PackTypeRepository>();
 builder.Services.AddScoped<IMeasurementUnitRepository , MeasurementUnitRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
