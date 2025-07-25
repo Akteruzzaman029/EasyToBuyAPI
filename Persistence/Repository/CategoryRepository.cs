@@ -25,6 +25,7 @@ namespace Persistence.Repository
             {
                 DynamicParameters p = new DynamicParameters();
                 p.Add("Name", searchModel.Name);
+                p.Add("CompanyId", searchModel.CompanyId);
                 p.Add("ParentId", searchModel.ParentId);
                 p.Add("IsActive", searchModel.IsActive);
                 p.Add("PageNumber", pageNumber);
@@ -54,10 +55,12 @@ namespace Persistence.Repository
             return output;
         }
 
-        public async Task<List<CategoryResponseDto>> GetDistinctCategories(int ParentId)
+        public async Task<List<CategoryResponseDto>> GetDistinctCategories(CategoryFilterDto searchModel)
         {
             DynamicParameters p = new DynamicParameters();
-            p.Add("ParentId", ParentId);
+            p.Add("Name", searchModel.Name);
+            p.Add("CompanyId", searchModel.CompanyId);
+            p.Add("ParentId", searchModel.ParentId);
             var output = await _dataAccessHelper.QueryData<CategoryResponseDto, dynamic>("USP_Category_GetDistinct", p);
             return output;
         }
@@ -75,10 +78,12 @@ namespace Persistence.Repository
             DynamicParameters p = new DynamicParameters();
             p.Add("Id", DbType.Int32, direction: ParameterDirection.Output);
             p.Add("Name", insertRequestModel.Name);
+            p.Add("CompanyId", insertRequestModel.CompanyId);
             p.Add("ParentId", insertRequestModel.ParentId);
             p.Add("SequenceNo", insertRequestModel.SequenceNo);
             p.Add("Remarks", insertRequestModel.Remarks);
             p.Add("IsActive", insertRequestModel.IsActive);
+            p.Add("UserId", insertRequestModel.UserId);
 
             await _dataAccessHelper.ExecuteData("USP_Category_Insert", p);
             return p.Get<int>("Id");
@@ -89,10 +94,12 @@ namespace Persistence.Repository
             DynamicParameters p = new DynamicParameters();
             p.Add("Id", categoryId);
             p.Add("Name", insertRequestModel.Name);
+            p.Add("CompanyId", insertRequestModel.CompanyId);
             p.Add("ParentId", insertRequestModel.ParentId);
             p.Add("SequenceNo", insertRequestModel.SequenceNo);
             p.Add("Remarks", insertRequestModel.Remarks);
             p.Add("IsActive", insertRequestModel.IsActive);
+            p.Add("UserId", insertRequestModel.UserId);
 
             return await _dataAccessHelper.ExecuteData("USP_Category_Update", p);
         }
@@ -101,6 +108,7 @@ namespace Persistence.Repository
         {
             DynamicParameters p = new DynamicParameters();
             p.Add("Id", categoryId);
+            p.Add("CompanyId", deleteRequestModel.CompanyId);
             p.Add("ParentId", deleteRequestModel.ParentId);
             return await _dataAccessHelper.ExecuteData("USP_Category_Delete", p);
         }

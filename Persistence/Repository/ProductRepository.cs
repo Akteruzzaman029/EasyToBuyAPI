@@ -111,14 +111,19 @@ namespace Persistence.Repository
             p.Add("PackTypeId", insertRequestModel.PackTypeId);
             p.Add("ModelNo", insertRequestModel.ModelNo);
             p.Add("PurchasePrice", insertRequestModel.PurchasePrice);
+            p.Add("FileId", insertRequestModel.FileId);
+            p.Add("Stock", insertRequestModel.Stock);
             p.Add("VAT", insertRequestModel.VAT);
             p.Add("Name", insertRequestModel.Name);
             p.Add("ShortName", insertRequestModel.ShortName);
             p.Add("Description", insertRequestModel.Description);
+            p.Add("IsFixedAmount", insertRequestModel.IsFixedAmount);
+            p.Add("Discount", insertRequestModel.Discount);
             p.Add("IsConsider", insertRequestModel.IsConsider);
             p.Add("IsBarCode", insertRequestModel.IsBarCode);
             p.Add("Remarks", insertRequestModel.Remarks);
             p.Add("IsActive", insertRequestModel.IsActive);
+            p.Add("UserId", insertRequestModel.UserId);
 
             await _dataAccessHelper.ExecuteData("USP_Product_Insert", p);
             return p.Get<int>("Id");
@@ -135,14 +140,19 @@ namespace Persistence.Repository
             p.Add("PackTypeId", insertRequestModel.PackTypeId);
             p.Add("ModelNo", insertRequestModel.ModelNo);
             p.Add("PurchasePrice", insertRequestModel.PurchasePrice);
+            p.Add("FileId", insertRequestModel.FileId);
+            p.Add("Stock", insertRequestModel.Stock);
             p.Add("VAT", insertRequestModel.VAT);
             p.Add("Name", insertRequestModel.Name);
             p.Add("ShortName", insertRequestModel.ShortName);
             p.Add("Description", insertRequestModel.Description);
+            p.Add("IsFixedAmount", insertRequestModel.IsFixedAmount);
+            p.Add("Discount", insertRequestModel.Discount);
             p.Add("IsConsider", insertRequestModel.IsConsider);
             p.Add("IsBarCode", insertRequestModel.IsBarCode);
             p.Add("Remarks", insertRequestModel.Remarks);
             p.Add("IsActive", insertRequestModel.IsActive);
+            p.Add("UserId", insertRequestModel.UserId);
 
             return await _dataAccessHelper.ExecuteData("USP_Product_Update", p);
         }

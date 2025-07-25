@@ -9,7 +9,7 @@ namespace Core.Model
         public int SubCategoryId { get; set; }
         public int MeasurementUnitId { get; set; }
         public int PackTypeId { get; set; }
-        public int ModelNo { get; set; }
+        public string ModelNo { get; set; } = string.Empty;
         public decimal PurchasePrice { get; set; }
         public decimal VAT { get; set; }
         public string Name { get; set; } = string.Empty;

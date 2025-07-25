@@ -50,10 +50,10 @@ namespace API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("GetAllCategories/{parentId}")]
-        public async Task<IActionResult> GetDistinctCategory(int parentId)
+        [HttpPost("GetAllCategories")]
+        public async Task<IActionResult> GetDistinctCategory([FromBody] CategoryFilterDto searchModel)
         {
-            var result = await _CategoryRepository.GetDistinctCategories(parentId);
+            var result = await _CategoryRepository.GetDistinctCategories(searchModel);
             if (result == null)
                 return NotFound("Category_NotFoundList");
 

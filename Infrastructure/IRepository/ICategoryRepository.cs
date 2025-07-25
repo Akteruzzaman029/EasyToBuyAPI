@@ -6,7 +6,7 @@ namespace Infrastructure.IRepository;
 public interface ICategoryRepository
 {
     Task<PaginatedListModel<CategoryResponseDto>> GetCategories(int pageNumber, CategoryFilterDto searchModel);
-    Task<List<CategoryResponseDto>> GetDistinctCategories(int parentId);
+    Task<List<CategoryResponseDto>> GetDistinctCategories(CategoryFilterDto searchModel);
     Task<CategoryResponseDto> GetCategoryById(int categoryId);
     Task<int> InsertCategory(CategoryRequestDto insertRequestModel);
     Task<int> UpdateCategory(int categoryId, CategoryRequestDto updateRequestModel);

@@ -7,8 +7,8 @@
         public int SubCategoryId { get; set; }
         public int MeasurementUnitId { get; set; }
         public int PackTypeId { get; set; }
-        public int ModelNo { get; set; }
-        public string Name { get; set; }
+        public string ModelNo { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
         public bool IsActive { get; set; }
     }
 }
