@@ -106,6 +106,23 @@ namespace Persistence.Repository
             await _dataAccessHelper.ExecuteData("USP_Cart_Insert", p);
             return p.Get<int>("Id");
         }
+        public async Task<int> InsertUpdateCart(CartRequestDto insertRequestModel)
+        {
+            DynamicParameters p = new DynamicParameters();
+            p.Add("Id", DbType.Int32, direction: ParameterDirection.Output);
+            p.Add("CompanyId", insertRequestModel.CompanyId);
+            p.Add("UserId", insertRequestModel.UserId);
+            p.Add("GuestId", insertRequestModel.GuestId);
+            p.Add("CartType", insertRequestModel.CartType);
+            p.Add("ProductId", insertRequestModel.ProductId);
+            p.Add("Quantity", insertRequestModel.Quantity);
+            p.Add("Remarks", insertRequestModel.Remarks);
+            p.Add("IsActive", insertRequestModel.IsActive);
+            p.Add("ActionType", insertRequestModel.ActionType);
+
+            await _dataAccessHelper.ExecuteData("USP_Cart_Insert_Update", p);
+            return p.Get<int>("Id");
+        }
 
         public async Task<int> UpdateCart(int CartId, CartRequestDto insertRequestModel)
         {

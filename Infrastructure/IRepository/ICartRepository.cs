@@ -10,6 +10,7 @@ public interface ICartRepository
     Task<CartResponseDto> GetCartById(int CartId);
     Task<List<CartResponseDto>> GetCartsByName(CartRequestDto insertRequestModel);
     Task<int> InsertCart(CartRequestDto insertRequestModel);
+    Task<int> InsertUpdateCart(CartRequestDto insertRequestModel);
     Task<int> UpdateCart(int CartId, CartRequestDto updateRequestModel);
     Task<int> DeleteCart(int CartId, CartRequestDto deleteRequestModel);
 }

@@ -89,7 +89,7 @@ namespace API.Controllers
                 if (requestModel == null)
                     return BadRequest("Cart_Null");
 
-                int insertedCartId = await _CartRepository.InsertCart(requestModel);
+                int insertedCartId = await _CartRepository.InsertUpdateCart(requestModel);
                 _responseDto.StatusCode = (int)StatusCodes.Status200OK;
                 _responseDto.Message = "Data Save Successfully";
 
