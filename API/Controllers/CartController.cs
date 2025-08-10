@@ -2,6 +2,7 @@
 using Core.ModelDto;
 using Core.ModelDto.Cart;
 using Infrastructure.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
@@ -14,6 +15,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class CartController : ControllerBase
     {
         private readonly SecurityHelper _securityHelper;
@@ -55,6 +57,7 @@ namespace API.Controllers
         }
 
         [HttpPost("GetAllCarts")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetDistinctCart([FromBody] CartFilterDto searchModel)
         {
             var result = await _CartRepository.GetDistinctCarts(searchModel);
@@ -66,6 +69,7 @@ namespace API.Controllers
 
 
         [HttpGet("GetCartById/{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetCartById(int id)
         {
 
@@ -81,6 +85,7 @@ namespace API.Controllers
 
 
         [HttpPost("InsertCart")]
+        [AllowAnonymous]
         public async Task<IActionResult> InsertCart([FromBody] CartRequestDto requestModel)
         {
             _responseDto = new ResponseDto();
@@ -106,6 +111,7 @@ namespace API.Controllers
 
 
         [HttpPost("UpdateCart/{CartId}")]
+        [AllowAnonymous]
         public async Task<IActionResult> UpdateCart(int CartId, [FromBody] CartRequestDto updateRequestModel)
         {
 
@@ -132,6 +138,7 @@ namespace API.Controllers
 
 
         [HttpPost("DeleteCart/{CartId}")]
+        [AllowAnonymous]
         public async Task<IActionResult> DeleteCart(int CartId, [FromBody] CartRequestDto deleteRequestModel)
         {
             #region "Hash Checking"

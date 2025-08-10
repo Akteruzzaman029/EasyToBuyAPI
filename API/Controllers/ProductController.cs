@@ -2,6 +2,7 @@
 using Core.ModelDto;
 using Core.ModelDto.Product;
 using Infrastructure.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
@@ -55,6 +56,7 @@ namespace API.Controllers
         }
 
         [HttpPost("GetAllProducts")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetDistinctProduct([FromBody] ProductFilterDto searchModel)
         {
             var result = await _ProductRepository.GetDistinctProducts(searchModel);
