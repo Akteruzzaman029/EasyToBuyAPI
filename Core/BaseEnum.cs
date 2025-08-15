@@ -92,5 +92,36 @@ public static class BaseEnum
     }
 
     // Add more enums as needed
+
+    public enum OrderType
+    {
+        Standard = 0,          // Regular purchase
+        PreOrder = 1,          // Product not yet released
+        BackOrder = 2,         // Out-of-stock but allowed to order
+        Subscription = 3,      // Recurring delivery
+        Gift = 4,              // Sent to someone else
+        FlashSale = 5          // Time-limited sale
+    }
+
+    public enum OrderStatus
+    {
+        Pending = 0,           // Order placed, awaiting confirmation
+        Confirmed = 1,         // Confirmed by seller or system
+        Processing = 2,        // Being prepared or packed
+        Shipped = 3,           // Handed over to courier
+        Delivered = 4,         // Delivered to customer
+        Cancelled = 5,         // Cancelled by user or system
+        Returned = 6,          // Customer returned the order
+        Refunded = 7,          // Refund processed
+        Failed = 8             // Payment or process failure
+    }
+
+    public enum PaymentMethod
+    {
+        Cash = 0,               // Cash payment in person (e.g., at store)
+        CashOnDelivery = 1,     // Pay cash when product is delivered
+        Online = 2             // Paid through online gateway (e.g., card, bKash, SSLCommerz)
+    }
+
 }
 

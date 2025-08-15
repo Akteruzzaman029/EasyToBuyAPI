@@ -28,6 +28,7 @@ namespace Persistence.Repository
                 DynamicParameters p = new DynamicParameters();
                 p.Add("StartDate", startDate);
                 p.Add("EndDate", endDate);
+                p.Add("OrderType", searchModel.OrderType);
                 p.Add("CompanyId", searchModel.CompanyId);
                 p.Add("UserId", searchModel.UserId);
                 p.Add("OrderNo", searchModel.OrderNo);
@@ -95,6 +96,7 @@ namespace Persistence.Repository
             DynamicParameters p = new DynamicParameters();
             p.Add("Id", DbType.Int32, direction: ParameterDirection.Output);
             p.Add("AddressId", insertRequestModel.AddressId);
+            p.Add("OrderType", insertRequestModel.OrderType);
             p.Add("CompanyId", insertRequestModel.CompanyId);
             p.Add("UserId", insertRequestModel.UserId);
             p.Add("OrderNo", insertRequestModel.OrderNo);
@@ -113,6 +115,7 @@ namespace Persistence.Repository
             DynamicParameters p = new DynamicParameters();
             p.Add("Id", OrderId);
             p.Add("AddressId", insertRequestModel.AddressId);
+            p.Add("OrderType", insertRequestModel.OrderType);
             p.Add("CompanyId", insertRequestModel.CompanyId);
             p.Add("UserId", insertRequestModel.UserId);
             p.Add("OrderNo", insertRequestModel.OrderNo);

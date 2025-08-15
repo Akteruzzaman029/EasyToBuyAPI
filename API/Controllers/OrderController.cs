@@ -21,12 +21,15 @@ namespace API.Controllers
         private readonly IOrderRepository _OrderRepository;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IHubContext<NotificationHub> _hubContext;
+
+        private readonly IOrderItemRepository _OrderItemRepository;
         private ResponseDto _responseDto = new ResponseDto();
 
         public OrderController(SecurityHelper securityHelper,
             ILogger<OrderController> logger,
             IOrderRepository OrderRepository,
-            UserManager<ApplicationUser> userManager,
+            IOrderItemRepository OrderItemRepository,
+        UserManager<ApplicationUser> userManager,
             IHubContext<NotificationHub> hubContext
             )
         {
@@ -35,6 +38,7 @@ namespace API.Controllers
             this._OrderRepository = OrderRepository;
             this._userManager = userManager;
             this._hubContext = hubContext;
+            this._OrderItemRepository = OrderItemRepository;    
         }
 
         [HttpPost("GetOrder")]
@@ -90,6 +94,16 @@ namespace API.Controllers
                     return BadRequest("Order_Null");
 
                 int insertedOrderId = await _OrderRepository.InsertOrder(requestModel);
+
+                if (requestModel.OrderItems.Count>0)
+                {
+                    foreach (var item in requestModel.OrderItems)
+                    {
+                        item.OrderId = insertedOrderId;
+                        await _OrderItemRepository.InsertOrderItem(item);
+                    }
+                }
+
                 _responseDto.StatusCode = (int)StatusCodes.Status200OK;
                 _responseDto.Message = "Data Save Successfully";
 
