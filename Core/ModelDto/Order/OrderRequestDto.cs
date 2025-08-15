@@ -3,6 +3,7 @@
     public class OrderRequestDto
     {
         public int CompanyId { get; set; }
+        public int? AddressId { get; set; }
         public string? UserId { get; set; }           // Nullable for guest orders
         public string? OrderNo { get; set; }          // Unique order number or code
         public decimal TotalAmount { get; set; }      // Total value of the order

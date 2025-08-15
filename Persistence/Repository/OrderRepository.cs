@@ -94,6 +94,7 @@ namespace Persistence.Repository
         {
             DynamicParameters p = new DynamicParameters();
             p.Add("Id", DbType.Int32, direction: ParameterDirection.Output);
+            p.Add("AddressId", insertRequestModel.AddressId);
             p.Add("CompanyId", insertRequestModel.CompanyId);
             p.Add("UserId", insertRequestModel.UserId);
             p.Add("OrderNo", insertRequestModel.OrderNo);
@@ -111,6 +112,7 @@ namespace Persistence.Repository
         {
             DynamicParameters p = new DynamicParameters();
             p.Add("Id", OrderId);
+            p.Add("AddressId", insertRequestModel.AddressId);
             p.Add("CompanyId", insertRequestModel.CompanyId);
             p.Add("UserId", insertRequestModel.UserId);
             p.Add("OrderNo", insertRequestModel.OrderNo);
