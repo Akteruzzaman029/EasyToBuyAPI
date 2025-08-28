@@ -99,7 +99,6 @@ namespace Persistence.Repository
             p.Add("OrderType", insertRequestModel.OrderType);
             p.Add("CompanyId", insertRequestModel.CompanyId);
             p.Add("UserId", insertRequestModel.UserId);
-            p.Add("OrderNo", insertRequestModel.OrderNo);
             p.Add("OrderStatus", insertRequestModel.OrderStatus);
             p.Add("TotalAmount", insertRequestModel.TotalAmount);
             p.Add("TotalDiscount", insertRequestModel.TotalDiscount);
