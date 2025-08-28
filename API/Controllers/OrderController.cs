@@ -1,5 +1,6 @@
 ﻿using Core.Identity;
 using Core.ModelDto;
+using Core.ModelDto.Cart;
 using Core.ModelDto.Order;
 using Infrastructure.IRepository;
 using Microsoft.AspNetCore.Identity;
@@ -21,6 +22,7 @@ namespace API.Controllers
         private readonly IOrderRepository _OrderRepository;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IHubContext<NotificationHub> _hubContext;
+        private readonly ICartRepository _CartRepository;
 
         private readonly IOrderItemRepository _OrderItemRepository;
         private ResponseDto _responseDto = new ResponseDto();
@@ -29,6 +31,7 @@ namespace API.Controllers
             ILogger<OrderController> logger,
             IOrderRepository OrderRepository,
             IOrderItemRepository OrderItemRepository,
+            ICartRepository CartRepository,
         UserManager<ApplicationUser> userManager,
             IHubContext<NotificationHub> hubContext
             )
@@ -38,7 +41,9 @@ namespace API.Controllers
             this._OrderRepository = OrderRepository;
             this._userManager = userManager;
             this._hubContext = hubContext;
-            this._OrderItemRepository = OrderItemRepository;    
+            this._OrderItemRepository = OrderItemRepository;   
+            this._CartRepository = CartRepository;   
+            
         }
 
         [HttpPost("GetOrder")]
@@ -101,6 +106,9 @@ namespace API.Controllers
                     {
                         item.OrderId = insertedOrderId;
                         await _OrderItemRepository.InsertOrderItem(item);
+                        CartRequestDto deleteRequestModel=new CartRequestDto();
+                        deleteRequestModel.CompanyId = requestModel.CompanyId;
+                        await _CartRepository.DeleteCart(item.CartId,deleteRequestModel);
                     }
                 }
 

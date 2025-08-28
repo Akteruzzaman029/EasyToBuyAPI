@@ -6,6 +6,7 @@ using Core.ModelDto.Payment;
 using Core.ModelDto.Student;
 using Core.ModelDto.UserPackage;
 using Infrastructure.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Persistence.Repository;
@@ -119,7 +120,8 @@ namespace API.Controllers
         }
 
 
-        [HttpPost("InsertAspNetUsers")]
+        [HttpPost("InsertAspNetUsers"),AllowAnonymous]
+
         public async Task<IActionResult> InsertAspNetUsers([FromBody] AspNetUsersRequestDto requestModel)
         {
             _responseDto = new ResponseDto();
