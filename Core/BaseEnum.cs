@@ -5,6 +5,32 @@ namespace Core;
 
 public static class BaseEnum
 {
+
+    public enum EPSTransitionStatusEnum
+    {
+        Success = 1,
+        Fail = 2,
+        Cancel = 3,
+        Initialize = 4,
+        TokenGeneration = 5
+    }
+
+    public enum ErrorCodes
+    {
+        Bad_Request = 400,
+        Unauthorized = 401,
+        Payment_Required = 402,
+        Forbidden = 403,
+        Not_Found = 404,
+        Request_Timeout = 408,
+        Unsupported_Media_Type = 415,
+        Internal_Server_Error = 500,
+        Transaction_Failed = 101,
+        Transaction_Canceled = 102,
+        Initialize_Fail = 103,
+        Token_Generation_Fail = 104
+    }
+
     public enum LearningStage
     {
         NotStarted = 0,

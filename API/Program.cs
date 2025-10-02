@@ -152,6 +152,9 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
 builder.Services.AddScoped<IOrderPaymentRepository, OrderPaymentRepository>();
 builder.Services.AddScoped<IStatusMasterRepository, StatusMasterRepository>();
+builder.Services.AddScoped<IPaymentGatewayTypeRepository, PaymentGatewayTypeRepository>();
+builder.Services.AddScoped<IPaymentGatewayConfigRepository, PaymentGatewayConfigRepository>();
+builder.Services.AddScoped<IEPSPGRepository, EPSPGRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
