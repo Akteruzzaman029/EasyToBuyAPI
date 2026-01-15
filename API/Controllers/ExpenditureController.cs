@@ -6,7 +6,6 @@ using Core.ModelDto.UploadedFile;
 using Infrastructure.IRepository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using Persistence.Repository;
 using System.Security.Claims;
 
