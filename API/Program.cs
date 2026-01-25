@@ -16,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder =>
-         builder.WithOrigins("http://localhost:4200", "http://localhost:8081", "http://103.192.159.61:8011", "http://103.192.159.61:8011/") // Replace with your Angular app's domain
+         builder.WithOrigins("http://localhost:4200", "http://easytobuy.runasp.net", "http://easytobuy.runasp.net/#/") // Replace with your Angular app's domain
      .AllowAnyMethod()
     .AllowAnyHeader()
     .AllowCredentials());
@@ -168,11 +168,11 @@ builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();

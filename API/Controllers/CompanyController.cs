@@ -88,7 +88,7 @@ namespace API.Controllers
             if (string.IsNullOrWhiteSpace(code))
                 return BadRequest("Company_InvalidCode : "+ code);
 
-            var result = await _CompanyRepository.GetCompanyByCode(code);
+            var result = await _CompanyRepository.GetCompanyByCode(code.Trim());
             if (result == null)
                 return NotFound("Company_NotFoundCode : "+ code);
 
