@@ -49,7 +49,12 @@ builder.Services.AddSwaggerGen(c =>
             });
 });
 
-builder.Services.AddDbContext<MembershipDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("MSSQL")));
+builder.Services.AddDbContext<MembershipDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("MSSQL"),
+        sqlOptions => sqlOptions.EnableRetryOnFailure()
+    )
+);
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
