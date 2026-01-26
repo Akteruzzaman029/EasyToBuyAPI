@@ -108,6 +108,7 @@ namespace API.Controllers
                         await _OrderItemRepository.InsertOrderItem(item);
                         CartRequestDto deleteRequestModel=new CartRequestDto();
                         deleteRequestModel.CompanyId = requestModel.CompanyId;
+                        deleteRequestModel.ProductId = item.ProductId;
                         await _CartRepository.DeleteCart(item.CartId,deleteRequestModel);
                     }
                 }

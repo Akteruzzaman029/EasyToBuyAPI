@@ -30,9 +30,8 @@ namespace Core.ModelDto.AspNetUsers
 
         [Required(ErrorMessage = "Please Select Company"), Display(Name = "Company")]
         [Range(1, int.MaxValue, ErrorMessage = "Please select a Company.")]
+        public int CompanyId { get; set; } = 0;
         public int Type { get; set; } = 0;
-        public int PackageId { get; set; } = 0;
-        public decimal Amount { get; set; }
         public string CurrentPassword { get; set; } = string.Empty;
     }
 }

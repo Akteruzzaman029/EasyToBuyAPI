@@ -12,6 +12,7 @@
         public int FileId { get; set; }
         public string PostalCode { get; set; } = string.Empty;
         public int BookingId { get; set; } = 0;
+        public int CompanyId { get; set; } = 0;
         public int VehicleType { get; set; } = 0;
         public int Nooflesson { get; set; } = 0;
         public int LessonRate { get; set; } = 0;

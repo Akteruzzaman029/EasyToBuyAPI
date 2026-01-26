@@ -66,6 +66,7 @@ namespace Persistence.Repository
             DynamicParameters p = new DynamicParameters();
             p.Add("CompanyId", searchModel.CompanyId);
             p.Add("OrderNo", searchModel.OrderNo);
+            p.Add("UserId", searchModel.UserId);
             p.Add("OrderStatus", searchModel.OrderStatus);
 
             var output = await _dataAccessHelper.QueryData<OrderResponseDto, dynamic>("USP_Order_GetDistinct", p);

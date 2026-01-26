@@ -219,6 +219,7 @@ namespace API.Controllers
                 insertRequestModel.Password = requestModel.Password;
                 insertRequestModel.ConfirmPassword = requestModel.ConfirmPassword;
                 insertRequestModel.Type = requestModel.Type;
+                insertRequestModel.CompanyId = requestModel.CompanyId;
                 var oUser = await _AspNetUsersRepository.InsertAspNetUsers(insertRequestModel);
 
                 if (oUser == null)
@@ -243,6 +244,7 @@ namespace API.Controllers
                         VehicleType = requestModel.VehicleType,
                         FileId = requestModel.FileId,
                         PostalCode = requestModel.PostalCode,
+                        CompanyId = requestModel.CompanyId,
                         IsActive = true
                     });
 
@@ -258,6 +260,7 @@ namespace API.Controllers
                         Discount = requestModel.Discount,
                         Amount = requestModel.Amount,
                         NetAmount = requestModel.NetAmount,
+                        CompanyId = requestModel.CompanyId,
                         Remarks="",
                         IsActive = true
                     });
@@ -267,6 +270,7 @@ namespace API.Controllers
                         UserId = oUser.Id,
                         PackageId=requestModel.PackageId,
                         Amount = requestModel.PaymentAmount,
+                        CompanyId = requestModel.CompanyId,
                         Status=1,
                         TransactionDate= DateTime.UtcNow,
                         PaymentMethod="",

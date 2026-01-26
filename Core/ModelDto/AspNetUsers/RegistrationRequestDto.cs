@@ -18,6 +18,7 @@ namespace Core.ModelDto.AspNetUsers
         public int VehicleType { get; set; } = 0;
         public int Type { get; set; } = 0;
         public int PackageId { get; set; } = 0;
+        public int CompanyId { get; set; } = 0;
         public int BookingId { get; set; } = 0;
         public int Nooflesson { get; set; } = 0;
         public int LessonRate { get; set; } = 0;

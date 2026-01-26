@@ -95,11 +95,12 @@ namespace Persistence.Repository
             {
                  user = new ApplicationUser
                 {
-                    UserName = insertRequestModel.UserName,
+                    UserName = insertRequestModel.Email,
                     FullName = insertRequestModel.FullName,
                     Email = insertRequestModel.Email,
                     PhoneNumber = insertRequestModel.PhoneNumber,
                     Type = insertRequestModel.Type,
+                    CompanyId = insertRequestModel.CompanyId,
                     EmailConfirmed = true,
                     LockoutEnabled = false,
                 };
