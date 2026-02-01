@@ -160,6 +160,7 @@ builder.Services.AddScoped<IStatusMasterRepository, StatusMasterRepository>();
 builder.Services.AddScoped<IPaymentGatewayTypeRepository, PaymentGatewayTypeRepository>();
 builder.Services.AddScoped<IPaymentGatewayConfigRepository, PaymentGatewayConfigRepository>();
 builder.Services.AddScoped<IEPSPGRepository, EPSPGRepository>();
+builder.Services.AddScoped<IWebsiteSectionRepository, WebsiteSectionRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
