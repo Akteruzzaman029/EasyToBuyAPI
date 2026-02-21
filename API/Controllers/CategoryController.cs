@@ -2,6 +2,7 @@
 using Core.ModelDto;
 using Core.ModelDto.Category;
 using Infrastructure.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Persistence.Repository;
@@ -51,6 +52,7 @@ namespace API.Controllers
         }
 
         [HttpPost("GetAllCategories")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetDistinctCategory([FromBody] CategoryFilterDto searchModel)
         {
             var result = await _CategoryRepository.GetDistinctCategories(searchModel);

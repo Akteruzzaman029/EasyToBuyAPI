@@ -4,6 +4,7 @@
     {
         public string Name { get; set; } = string.Empty;
         public int SequenceNo { get; set; } 
+        public int FileId { get; set; } 
         public int ParentId { get; set; } 
         public int CompanyId { get; set; } 
         public string UserId { get; set; } = string.Empty;
