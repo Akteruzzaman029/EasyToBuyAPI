@@ -16,4 +16,4 @@ namespace Core.Model
         public bool IsActive { get; set; }
     }
 }
-}
+
