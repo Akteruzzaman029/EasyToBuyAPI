@@ -2,7 +2,7 @@
 
 namespace Core.Model
 {
-    public class CategoryModel: BaseEntity
+    public class BrandModel: BaseEntity
     {
         [Required]
         [MaxLength(150)]
@@ -10,7 +10,6 @@ namespace Core.Model
         public string Icon { get; set; } = string.Empty;
         public int SequenceNo { get; set; }
         public int FileId { get; set; }
-        public int ParentId { get; set; }
         public int CompanyId { get; set; }
         public string UserId { get; set; } = string.Empty;
     }
