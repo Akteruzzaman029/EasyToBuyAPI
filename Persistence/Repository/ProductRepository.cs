@@ -34,6 +34,12 @@ namespace Persistence.Repository
                 p.Add("ModelNo", searchModel.ModelNo);
                 p.Add("Name", searchModel.Name);
                 p.Add("IsActive", searchModel.IsActive);
+                p.Add("BrandId", searchModel.BrandId);
+                p.Add("MinPrice", searchModel.MinPrice);
+                p.Add("MaxPrice", searchModel.MaxPrice);
+                p.Add("Rating", searchModel.Rating);
+                p.Add("InStock", searchModel.InStock);
+                p.Add("SortBy", searchModel.SortBy);
                 p.Add("PageNumber", pageNumber);
                 p.Add("PageSize", Convert.ToInt32(_config["SiteSettings:PageSize"]));
                 p.Add("TotalRecords", DbType.Int32, direction: ParameterDirection.Output);
@@ -72,6 +78,13 @@ namespace Persistence.Repository
             p.Add("PackTypeId", searchModel.PackTypeId);
             p.Add("ModelNo", searchModel.ModelNo);
             p.Add("Name", searchModel.Name);
+            p.Add("IsActive", searchModel.IsActive);
+            p.Add("BrandId", searchModel.BrandId);
+            p.Add("MinPrice", searchModel.MinPrice);
+            p.Add("MaxPrice", searchModel.MaxPrice);
+            p.Add("Rating", searchModel.Rating);
+            p.Add("InStock", searchModel.InStock);
+            p.Add("SortBy", searchModel.SortBy);
 
             var output = await _dataAccessHelper.QueryData<ProductResponseDto, dynamic>("USP_Product_GetDistinct", p);
 
@@ -112,6 +125,7 @@ namespace Persistence.Repository
             p.Add("ModelNo", insertRequestModel.ModelNo);
             p.Add("PurchasePrice", insertRequestModel.PurchasePrice);
             p.Add("FileId", insertRequestModel.FileId);
+            p.Add("BrandId", insertRequestModel.BrandId);
             p.Add("Stock", insertRequestModel.Stock);
             p.Add("VAT", insertRequestModel.VAT);
             p.Add("Name", insertRequestModel.Name);
@@ -141,6 +155,7 @@ namespace Persistence.Repository
             p.Add("ModelNo", insertRequestModel.ModelNo);
             p.Add("PurchasePrice", insertRequestModel.PurchasePrice);
             p.Add("FileId", insertRequestModel.FileId);
+            p.Add("BrandId", insertRequestModel.BrandId);
             p.Add("Stock", insertRequestModel.Stock);
             p.Add("VAT", insertRequestModel.VAT);
             p.Add("Name", insertRequestModel.Name);

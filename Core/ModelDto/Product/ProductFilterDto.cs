@@ -10,5 +10,12 @@
         public string ModelNo { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public bool IsActive { get; set; }
+        public int? BrandId { get; set; }
+        public decimal? MinPrice { get; set; }
+        public decimal? MaxPrice { get; set; }
+        public int? Rating { get; set; }
+        public bool? InStock { get; set; }
+        public string? SortBy { get; set; }
+
     }
 }

@@ -16,6 +16,7 @@
         public bool? IsConsider { get; set; }
         public bool? IsBarCode { get; set; }
         public int FileId { get; set; } = 0;
+        public int BrandId { get; set; } = 0;
         public int Stock { get; set; } = 0;
         public bool IsFixedAmount { get; set; }
         public decimal Discount { get; set; } = 0;
