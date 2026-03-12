@@ -27,6 +27,7 @@ namespace Persistence.Repository
                 p.Add("CompanyId", searchModel.CompanyId);
                 p.Add("ProductId", searchModel.ProductId);
                 p.Add("UserId", searchModel.UserId);
+                p.Add("TypeId", searchModel.TypeId);
                 p.Add("Rate", searchModel.Rate);
                 p.Add("IsActive", searchModel.IsActive);
                 p.Add("PageNumber", pageNumber);
@@ -64,6 +65,7 @@ namespace Persistence.Repository
             p.Add("ProductId", searchModel.ProductId);
             p.Add("UserId", searchModel.UserId);
             p.Add("Rate", searchModel.Rate);
+            p.Add("TypeId", searchModel.TypeId);
 
             var output = await _dataAccessHelper.QueryData<ProductRateResponseDto, dynamic>("USP_ProductRate_GetDistinct", p);
 
@@ -84,6 +86,7 @@ namespace Persistence.Repository
             p.Add("ProductId", insertRequestModel.ProductId);
             p.Add("UserId", insertRequestModel.UserId);
             p.Add("Rate", insertRequestModel.Rate);
+            p.Add("TypeId", insertRequestModel.TypeId);
             var output = await _dataAccessHelper.QueryData<ProductRateResponseDto, dynamic>("USP_ProductRate_GetProductRatesByName", p);
             return output;
         }
@@ -98,7 +101,6 @@ namespace Persistence.Repository
             p.Add("UserId", insertRequestModel.UserId);
             p.Add("TypeId", insertRequestModel.TypeId);
             p.Add("Rate", insertRequestModel.Rate);
-            p.Add("FileId", insertRequestModel.FileId);
             p.Add("Remarks", insertRequestModel.Remarks);
             p.Add("IsActive", insertRequestModel.IsActive);
 
@@ -115,7 +117,6 @@ namespace Persistence.Repository
             p.Add("UserId", insertRequestModel.UserId);
             p.Add("TypeId", insertRequestModel.TypeId);
             p.Add("Rate", insertRequestModel.Rate);
-            p.Add("FileId", insertRequestModel.FileId);
             p.Add("Remarks", insertRequestModel.Remarks);
             p.Add("IsActive", insertRequestModel.IsActive);
 
