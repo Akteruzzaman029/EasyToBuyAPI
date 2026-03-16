@@ -58,10 +58,19 @@ namespace Persistence.Repository
         public async Task<List<CategoryResponseDto>> GetDistinctCategories(CategoryFilterDto searchModel)
         {
             DynamicParameters p = new DynamicParameters();
+            p.Add("Name", string.IsNullOrWhiteSpace(searchModel.Name) ? null : searchModel.Name);
+            p.Add("CompanyId", searchModel.CompanyId);
+            p.Add("ParentId", searchModel.ParentId); 
+            var output = await _dataAccessHelper.QueryData<CategoryResponseDto, dynamic>("USP_Category_GetDistinct", p);
+            return output;
+        }
+        public async Task<List<CategoryResponseDto>> GetCategoryTree(CategoryFilterDto searchModel)
+        {
+            DynamicParameters p = new DynamicParameters();
             p.Add("Name", searchModel.Name);
             p.Add("CompanyId", searchModel.CompanyId);
             p.Add("ParentId", searchModel.ParentId);
-            var output = await _dataAccessHelper.QueryData<CategoryResponseDto, dynamic>("USP_Category_GetDistinct", p);
+            var output = await _dataAccessHelper.QueryData<CategoryResponseDto, dynamic>("USP_Category_GetCategoryTree", p);
             return output;
         }
 

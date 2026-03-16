@@ -5,5 +5,6 @@ namespace Core.ModelDto.Category
     public class CategoryResponseDto : CategoryModel
     {
         public string SubCategoryName { get; set; } = string.Empty;
+        public bool HasChild { get; set; }
     }
 }
