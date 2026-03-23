@@ -44,18 +44,18 @@ namespace API.Controllers
             if (pageNumber <= 0)
                 return BadRequest("Brand_InvalidPageNumber : "+ pageNumber);
 
-            var result = await _BrandRepository.GetCategories(pageNumber, searchModel);
+            var result = await _BrandRepository.GetBrands(pageNumber, searchModel);
             if (result == null)
                 return NotFound("Brand_NotFoundList");
 
             return Ok(result);
         }
 
-        [HttpPost("GetAllCategories")]
+        [HttpPost("GetAllBrands")]
         [AllowAnonymous]
         public async Task<IActionResult> GetDistinctBrand([FromBody] BrandFilterDto searchModel)
         {
-            var result = await _BrandRepository.GetDistinctCategories(searchModel);
+            var result = await _BrandRepository.GetDistinctBrands(searchModel);
             if (result == null)
                 return NotFound("Brand_NotFoundList");
 

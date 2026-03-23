@@ -6,5 +6,6 @@ namespace Core.ModelDto.Category
     {
         public string SubCategoryName { get; set; } = string.Empty;
         public bool HasChild { get; set; }
+        public int ProductCount { get; set; }
     }
 }

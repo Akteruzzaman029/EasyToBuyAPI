@@ -5,8 +5,8 @@ namespace Infrastructure.IRepository;
 
 public interface IBrandRepository
 {
-    Task<PaginatedListModel<BrandResponseDto>> GetCategories(int pageNumber, BrandFilterDto searchModel);
-    Task<List<BrandResponseDto>> GetDistinctCategories(BrandFilterDto searchModel);
+    Task<PaginatedListModel<BrandResponseDto>> GetBrands(int pageNumber, BrandFilterDto searchModel);
+    Task<List<BrandResponseDto>> GetDistinctBrands(BrandFilterDto searchModel);
     Task<BrandResponseDto> GetBrandById(int BrandId);
     Task<int> InsertBrand(BrandRequestDto insertRequestModel);
     Task<int> UpdateBrand(int BrandId, BrandRequestDto updateRequestModel);

@@ -34,7 +34,7 @@ namespace Persistence.Repository
                 p.Add("ModelNo", searchModel.ModelNo);
                 p.Add("Name", searchModel.Name);
                 p.Add("IsActive", searchModel.IsActive);
-                p.Add("BrandId", searchModel.BrandId);
+                p.Add("BrandIds", searchModel.BrandIds);
                 p.Add("MinPrice", searchModel.MinPrice);
                 p.Add("MaxPrice", searchModel.MaxPrice);
                 p.Add("Rating", searchModel.Rating);
@@ -79,7 +79,7 @@ namespace Persistence.Repository
             p.Add("ModelNo", searchModel.ModelNo);
             p.Add("Name", searchModel.Name);
             p.Add("IsActive", searchModel.IsActive);
-            p.Add("BrandId", searchModel.BrandId);
+            p.Add("BrandIds", searchModel.BrandIds);
             p.Add("MinPrice", searchModel.MinPrice);
             p.Add("MaxPrice", searchModel.MaxPrice);
             p.Add("Rating", searchModel.Rating);

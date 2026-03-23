@@ -10,7 +10,7 @@
         public string ModelNo { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public bool IsActive { get; set; }
-        public int? BrandId { get; set; }
+        public string BrandIds { get; set; } = string.Empty;
         public decimal? MinPrice { get; set; }
         public decimal? MaxPrice { get; set; }
         public int? Rating { get; set; }
