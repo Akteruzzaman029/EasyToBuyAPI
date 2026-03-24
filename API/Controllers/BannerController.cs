@@ -44,18 +44,18 @@ namespace API.Controllers
             if (pageNumber <= 0)
                 return BadRequest("Banner_InvalidPageNumber : "+ pageNumber);
 
-            var result = await _BannerRepository.GetCategories(pageNumber, searchModel);
+            var result = await _BannerRepository.GetBanners(pageNumber, searchModel);
             if (result == null)
                 return NotFound("Banner_NotFoundList");
 
             return Ok(result);
         }
 
-        [HttpPost("GetAllCategories")]
+        [HttpPost("GetAllBanners")]
         [AllowAnonymous]
         public async Task<IActionResult> GetDistinctBanner([FromBody] BannerFilterDto searchModel)
         {
-            var result = await _BannerRepository.GetDistinctCategories(searchModel);
+            var result = await _BannerRepository.GetDistinctBanners(searchModel);
             if (result == null)
                 return NotFound("Banner_NotFoundList");
 

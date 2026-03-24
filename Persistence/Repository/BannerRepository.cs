@@ -17,7 +17,7 @@ namespace Persistence.Repository
             _config = config;
         }
 
-        public async Task<PaginatedListModel<BannerResponseDto>> GetCategories(int pageNumber, BannerFilterDto searchModel)
+        public async Task<PaginatedListModel<BannerResponseDto>> GetBanners(int pageNumber, BannerFilterDto searchModel)
         {
             PaginatedListModel<BannerResponseDto> output = new PaginatedListModel<BannerResponseDto>();
 
@@ -55,7 +55,7 @@ namespace Persistence.Repository
             return output;
         }
 
-        public async Task<List<BannerResponseDto>> GetDistinctCategories(BannerFilterDto searchModel)
+        public async Task<List<BannerResponseDto>> GetDistinctBanners(BannerFilterDto searchModel)
         {
             DynamicParameters p = new DynamicParameters();
             p.Add("Name", searchModel.Name);
