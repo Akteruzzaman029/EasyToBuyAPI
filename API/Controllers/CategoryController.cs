@@ -72,6 +72,16 @@ namespace API.Controllers
 
             return Ok(result);
         }
+        [HttpPost("GetCategoryMenues")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetCategoryMenues([FromBody] CategoryFilterDto searchModel)
+        {
+            var result = await _CategoryRepository.GetCategoryTree(searchModel);
+            if (result == null)
+                return NotFound("Category_NotFoundList");
+
+            return Ok(CategoryTreeBuilder.BuildTree(result));
+        }
 
         [HttpGet("GetCategoryById/{id}")]
         public async Task<IActionResult> GetCategoryById(int id)
