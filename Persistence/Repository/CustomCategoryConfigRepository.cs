@@ -1,5 +1,5 @@
 ﻿using Core.Model;
-using Core.ModelDto.CustomCategory;
+using Core.ModelDto.CustomCategoryConfig;
 using Dapper;
 using Infrastructure.IRepository;
 using Microsoft.Extensions.Configuration;
@@ -7,37 +7,35 @@ using System.Data;
 
 namespace Persistence.Repository
 {
-    public class CustomCategoryRepository : ICustomCategoryRepository
+    public class CustomCategoryConfigRepository : ICustomCategoryConfigRepository
     {
         private readonly DataAccessHelper _dataAccessHelper;
         private readonly IConfiguration _config;
-        public CustomCategoryRepository(DataAccessHelper dataAccessHelper, IConfiguration config)
+        public CustomCategoryConfigRepository(DataAccessHelper dataAccessHelper, IConfiguration config)
         {
             _dataAccessHelper = dataAccessHelper;
             _config = config;
         }
 
-        public async Task<PaginatedListModel<CustomCategoryResponseDto>> GetCustomCategories(int pageNumber, CustomCategoryFilterDto searchModel)
+        public async Task<PaginatedListModel<CustomCategoryConfigResponseDto>> GetCustomCategoryConfigs(int pageNumber, CustomCategoryConfigFilterDto searchModel)
         {
-            PaginatedListModel<CustomCategoryResponseDto> output = new PaginatedListModel<CustomCategoryResponseDto>();
+            PaginatedListModel<CustomCategoryConfigResponseDto> output = new PaginatedListModel<CustomCategoryConfigResponseDto>();
 
             try
             {
                 DynamicParameters p = new DynamicParameters();
                 p.Add("Name", searchModel.Name);
-                p.Add("CustomCategoryConfigId", searchModel.CustomCategoryConfigId);
                 p.Add("CompanyId", searchModel.CompanyId);
-                p.Add("CategoryId", searchModel.CategoryId);
                 p.Add("IsActive", searchModel.IsActive);
                 p.Add("PageNumber", pageNumber);
                 p.Add("PageSize", Convert.ToInt32(_config["SiteSettings:PageSize"]));
                 p.Add("TotalRecords", DbType.Int32, direction: ParameterDirection.Output);
 
-                var result = await _dataAccessHelper.QueryData<CustomCategoryResponseDto, dynamic>("USP_CustomCategory_GetAll", p);
+                var result = await _dataAccessHelper.QueryData<CustomCategoryConfigResponseDto, dynamic>("USP_CustomCategoryConfig_GetAll", p);
                 int TotalRecords = p.Get<int>("TotalRecords");
                 int totalPages = (int)Math.Ceiling(TotalRecords / Convert.ToDouble(_config["SiteSettings:PageSize"]));
 
-                output = new PaginatedListModel<CustomCategoryResponseDto>
+                output = new PaginatedListModel<CustomCategoryConfigResponseDto>
                 {
                     PageIndex = pageNumber,
                     TotalRecords = TotalRecords,
@@ -56,67 +54,60 @@ namespace Persistence.Repository
             return output;
         }
 
-        public async Task<List<CustomCategoryResponseDto>> GetDistinctCustomCategories(CustomCategoryFilterDto searchModel)
+        public async Task<List<CustomCategoryConfigResponseDto>> GetDistinctCustomCategoryConfigs(CustomCategoryConfigFilterDto searchModel)
         {
             DynamicParameters p = new DynamicParameters();
             p.Add("Name", string.IsNullOrWhiteSpace(searchModel.Name) ? null : searchModel.Name);
-            p.Add("CustomCategoryConfigId", searchModel.CustomCategoryConfigId);
             p.Add("CompanyId", searchModel.CompanyId);
-            p.Add("CategoryId", searchModel.CategoryId); 
-            var output = await _dataAccessHelper.QueryData<CustomCategoryResponseDto, dynamic>("USP_CustomCategory_GetDistinct", p);
+            var output = await _dataAccessHelper.QueryData<CustomCategoryConfigResponseDto, dynamic>("USP_CustomCategoryConfig_GetDistinct", p);
             return output;
         }
 
-        public async Task<CustomCategoryResponseDto> GetCustomCategoryById(int CustomCategoryId)
+        public async Task<CustomCategoryConfigResponseDto> GetCustomCategoryConfigById(int CustomCategoryConfigId)
         {
             DynamicParameters p = new DynamicParameters();
-            p.Add("Id", CustomCategoryId);
-            return (await _dataAccessHelper.QueryData<CustomCategoryResponseDto, dynamic>("USP_CustomCategory_GetById", p)).FirstOrDefault();
+            p.Add("Id", CustomCategoryConfigId);
+            return (await _dataAccessHelper.QueryData<CustomCategoryConfigResponseDto, dynamic>("USP_CustomCategoryConfig_GetById", p)).FirstOrDefault();
         }
 
 
-        public async Task<int> InsertCustomCategory(CustomCategoryRequestDto insertRequestModel)
+        public async Task<int> InsertCustomCategoryConfig(CustomCategoryConfigRequestDto insertRequestModel)
         {
             DynamicParameters p = new DynamicParameters();
             p.Add("Id", DbType.Int32, direction: ParameterDirection.Output);
             p.Add("Name", insertRequestModel.Name);
-            p.Add("CustomCategoryConfigId", insertRequestModel.CustomCategoryConfigId);
-            p.Add("FileId", insertRequestModel.FileId);
+            p.Add("Class", insertRequestModel.Class);
             p.Add("CompanyId", insertRequestModel.CompanyId);
-            p.Add("CategoryId", insertRequestModel.CategoryId);
             p.Add("SequenceNo", insertRequestModel.SequenceNo);
             p.Add("Remarks", insertRequestModel.Remarks);
             p.Add("IsActive", insertRequestModel.IsActive);
             p.Add("UserId", insertRequestModel.UserId);
 
-            await _dataAccessHelper.ExecuteData("USP_CustomCategory_Insert", p);
+            await _dataAccessHelper.ExecuteData("USP_CustomCategoryConfig_Insert", p);
             return p.Get<int>("Id");
         }
 
-        public async Task<int> UpdateCustomCategory(int CustomCategoryId, CustomCategoryRequestDto insertRequestModel)
+        public async Task<int> UpdateCustomCategoryConfig(int CustomCategoryConfigId, CustomCategoryConfigRequestDto insertRequestModel)
         {
             DynamicParameters p = new DynamicParameters();
-            p.Add("Id", CustomCategoryId);
+            p.Add("Id", CustomCategoryConfigId);
             p.Add("Name", insertRequestModel.Name);
-            p.Add("CustomCategoryConfigId", insertRequestModel.CustomCategoryConfigId);
-            p.Add("FileId", insertRequestModel.FileId);
+            p.Add("Class", insertRequestModel.Class);
             p.Add("CompanyId", insertRequestModel.CompanyId);
-            p.Add("CategoryId", insertRequestModel.CategoryId);
             p.Add("SequenceNo", insertRequestModel.SequenceNo);
             p.Add("Remarks", insertRequestModel.Remarks);
             p.Add("IsActive", insertRequestModel.IsActive);
             p.Add("UserId", insertRequestModel.UserId);
 
-            return await _dataAccessHelper.ExecuteData("USP_CustomCategory_Update", p);
+            return await _dataAccessHelper.ExecuteData("USP_CustomCategoryConfig_Update", p);
         }
 
-        public async Task<int> DeleteCustomCategory(int CustomCategoryId, CustomCategoryRequestDto deleteRequestModel)
+        public async Task<int> DeleteCustomCategoryConfig(int CustomCategoryConfigId, CustomCategoryConfigRequestDto deleteRequestModel)
         {
             DynamicParameters p = new DynamicParameters();
-            p.Add("Id", CustomCategoryId);
+            p.Add("Id", CustomCategoryConfigId);
             p.Add("CompanyId", deleteRequestModel.CompanyId);
-            p.Add("CategoryId", deleteRequestModel.CategoryId);
-            return await _dataAccessHelper.ExecuteData("USP_CustomCategory_Delete", p);
+            return await _dataAccessHelper.ExecuteData("USP_CustomCategoryConfig_Delete", p);
         }
     }
 }

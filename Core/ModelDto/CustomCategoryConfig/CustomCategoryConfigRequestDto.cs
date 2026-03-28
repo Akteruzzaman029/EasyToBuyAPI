@@ -1,12 +1,10 @@
-﻿namespace Core.ModelDto.CustomCategory
+﻿namespace Core.ModelDto.CustomCategoryConfig
 {
-    public class CustomCategoryRequestDto
+    public class CustomCategoryConfigRequestDto
     {
         public string Name { get; set; } = string.Empty;
-        public int CustomCategoryConfigId { get; set; } 
+        public string Class { get; set; } = string.Empty;
         public int SequenceNo { get; set; } 
-        public int FileId { get; set; } 
-        public int CategoryId { get; set; } 
         public int CompanyId { get; set; } 
         public string UserId { get; set; } = string.Empty;
         public string Remarks { get; set; } = string.Empty;

@@ -124,6 +124,7 @@ builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IAspNetUsersRepository, AspNetUsersRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICustomCategoryRepository, CustomCategoryRepository>();
+builder.Services.AddScoped<ICustomCategoryConfigRepository, CustomCategoryConfigRepository>();
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<IUploadedFileRepository, UploadedFileRepository>();
 builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();

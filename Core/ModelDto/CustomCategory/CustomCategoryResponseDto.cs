@@ -5,5 +5,7 @@ namespace Core.ModelDto.CustomCategory
     public class CustomCategoryResponseDto : CustomCategoryModel
     {
         public string CategoryName { get; set; } = string.Empty;
+        public string CustomCategoryConfigName { get; set; } = string.Empty;
+        public string ClassName { get; set; } = string.Empty;
     }
 }
