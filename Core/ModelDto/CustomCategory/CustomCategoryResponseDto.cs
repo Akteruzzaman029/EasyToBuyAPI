@@ -7,5 +7,6 @@ namespace Core.ModelDto.CustomCategory
         public string CategoryName { get; set; } = string.Empty;
         public string CustomCategoryConfigName { get; set; } = string.Empty;
         public string Class { get; set; } = string.Empty;
+        public int  ConfigSLNo { get; set; }
     }
 }
