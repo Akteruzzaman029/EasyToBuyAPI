@@ -167,6 +167,17 @@ builder.Services.AddScoped<IPaymentGatewayConfigRepository, PaymentGatewayConfig
 builder.Services.AddScoped<IEPSPGRepository, EPSPGRepository>();
 builder.Services.AddScoped<IWebsiteSectionRepository, WebsiteSectionRepository>();
 builder.Services.AddScoped<IBannerRepository, BannerRepository>();
+builder.Services.AddScoped<IOrderTypeRepository, OrderTypeRepository>();
+builder.Services.AddScoped<IOrderTrackingRepository, OrderTrackingRepository>();
+builder.Services.AddScoped<IOrderTrackingRepository, OrderTrackingRepository>();
+builder.Services.AddScoped<IOrderFlowStageRepository, OrderFlowStageRepository>();
+builder.Services.AddScoped<IOrderFlowStageTransitionRepository, OrderFlowStageTransitionRepository>();
+builder.Services.AddScoped<IOrderFlowRepository, OrderFlowRepository>();
+builder.Services.AddScoped<IOrderDeliveryRepository, OrderDeliveryRepository>();
+builder.Services.AddScoped<IOrderDeliveryChargeDetailRepository, OrderDeliveryChargeDetailRepository>();
+builder.Services.AddScoped<IOrderChargeAdjustmentRepository, OrderChargeAdjustmentRepository>();
+builder.Services.AddScoped<ISalesOrderRepository, SalesOrderRepository>();
+builder.Services.AddScoped<ISalesOrderItemRepository, SalesOrderItemRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

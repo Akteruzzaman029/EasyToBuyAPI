@@ -4,5 +4,6 @@ namespace Core.ModelDto.OrderFlow
 {
     public class OrderFlowResponseDto : OrderFlowModel
     {
+        public string OrderTypeName { get; set; }
     }
 }
