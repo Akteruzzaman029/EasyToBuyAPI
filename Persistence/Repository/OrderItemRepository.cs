@@ -91,6 +91,8 @@ namespace Persistence.Repository
             p.Add("Id", DbType.Int32, direction: ParameterDirection.Output);
             p.Add("OrderId", insertRequestModel.OrderId);
             p.Add("ProductId", insertRequestModel.ProductId);
+            p.Add("ProductName", insertRequestModel.ProductName);
+            p.Add("VAT", insertRequestModel.VAT);
             p.Add("Quantity", insertRequestModel.Quantity);
             p.Add("UnitPrice", insertRequestModel.UnitPrice);
             p.Add("Discount", insertRequestModel.Discount);
@@ -108,6 +110,8 @@ namespace Persistence.Repository
             p.Add("Id", OrderItemId);
             p.Add("OrderId", insertRequestModel.OrderId);
             p.Add("ProductId", insertRequestModel.ProductId);
+            p.Add("ProductName", insertRequestModel.ProductName);
+            p.Add("VAT", insertRequestModel.VAT);
             p.Add("Quantity", insertRequestModel.Quantity);
             p.Add("UnitPrice", insertRequestModel.UnitPrice);
             p.Add("Discount", insertRequestModel.Discount);

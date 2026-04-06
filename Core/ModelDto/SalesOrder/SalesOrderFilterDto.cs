@@ -4,7 +4,7 @@
     {
         public string OrderNo { get; set; } 
         public int CompanyId { get; set; }
-        public int? CustomerId { get; set;  }
+        public string UserId { get; set;  }
         public int OrderTypeId { get; set; }
         public int FlowId { get; set; }
         public int? CurrentStageId { get; set; }

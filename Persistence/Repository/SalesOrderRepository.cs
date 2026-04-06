@@ -27,7 +27,7 @@ namespace Persistence.Repository
                 DynamicParameters p = new DynamicParameters();
                 p.Add("OrderNo",searchModel.OrderNo);
                 p.Add("CompanyId",searchModel.CompanyId);
-                p.Add("CustomerId",searchModel.CustomerId);
+                p.Add("UserId", searchModel.UserId);
                 p.Add("OrderTypeId",searchModel.OrderTypeId);
                 p.Add("FlowId",searchModel.FlowId);
                 p.Add("CurrentStageId",searchModel.CurrentStageId);
@@ -68,7 +68,7 @@ namespace Persistence.Repository
             DynamicParameters p = new DynamicParameters();
             p.Add("OrderNo", searchModel.OrderNo);
             p.Add("CompanyId", searchModel.CompanyId);
-            p.Add("CustomerId", searchModel.CustomerId);
+            p.Add("UserId", searchModel.UserId);
             p.Add("OrderTypeId", searchModel.OrderTypeId);
             p.Add("FlowId", searchModel.FlowId);
             p.Add("CurrentStageId", searchModel.CurrentStageId);
@@ -95,12 +95,11 @@ namespace Persistence.Repository
             p.Add("Id", DbType.Int32, direction: ParameterDirection.Output);
             p.Add("OrderNo", insertRequestModel.OrderNo);
             p.Add("CompanyId", insertRequestModel.CompanyId);
-            p.Add("CustomerId", insertRequestModel.CustomerId);
             p.Add("AddressId", insertRequestModel.AddressId);
             p.Add("OrderTypeId", insertRequestModel.OrderTypeId);
             p.Add("FlowId", insertRequestModel.FlowId);
             p.Add("CurrentStageId", insertRequestModel.CurrentStageId);
-            p.Add("ItemTotalAmount", insertRequestModel.ItemTotalAmount);
+            p.Add("TotalAmount", insertRequestModel.TotalAmount);
             p.Add("TotalDiscount", insertRequestModel.TotalDiscount);
             p.Add("DeliveryCharge", insertRequestModel.DeliveryCharge);
             p.Add("ExtraDeliveryCharge", insertRequestModel.ExtraDeliveryCharge);
@@ -109,8 +108,6 @@ namespace Persistence.Repository
             p.Add("NetAmount", insertRequestModel.NetAmount);
             p.Add("DeliveryChargeRuleId", insertRequestModel.DeliveryChargeRuleId);
             p.Add("PaymentStatus", insertRequestModel.PaymentStatus);
-            p.Add("DeliveryStatus", insertRequestModel.DeliveryStatus);
-            p.Add("OrderStatus", insertRequestModel.OrderStatus);
             p.Add("IsActive", insertRequestModel.IsActive);
             p.Add("Remarks", insertRequestModel.Remarks);
             p.Add("UserId", insertRequestModel.UserId);
@@ -125,12 +122,11 @@ namespace Persistence.Repository
             p.Add("Id", SalesOrderId);
             p.Add("OrderNo", insertRequestModel.OrderNo);
             p.Add("CompanyId", insertRequestModel.CompanyId);
-            p.Add("CustomerId", insertRequestModel.CustomerId);
             p.Add("AddressId", insertRequestModel.AddressId);
             p.Add("OrderTypeId", insertRequestModel.OrderTypeId);
             p.Add("FlowId", insertRequestModel.FlowId);
             p.Add("CurrentStageId", insertRequestModel.CurrentStageId);
-            p.Add("ItemTotalAmount", insertRequestModel.ItemTotalAmount);
+            p.Add("TotalAmount", insertRequestModel.TotalAmount);
             p.Add("TotalDiscount", insertRequestModel.TotalDiscount);
             p.Add("DeliveryCharge", insertRequestModel.DeliveryCharge);
             p.Add("ExtraDeliveryCharge", insertRequestModel.ExtraDeliveryCharge);
@@ -139,8 +135,6 @@ namespace Persistence.Repository
             p.Add("NetAmount", insertRequestModel.NetAmount);
             p.Add("DeliveryChargeRuleId", insertRequestModel.DeliveryChargeRuleId);
             p.Add("PaymentStatus", insertRequestModel.PaymentStatus);
-            p.Add("DeliveryStatus", insertRequestModel.DeliveryStatus);
-            p.Add("OrderStatus", insertRequestModel.OrderStatus);
             p.Add("IsActive", insertRequestModel.IsActive);
             p.Add("Remarks", insertRequestModel.Remarks);
             p.Add("UserId", insertRequestModel.UserId);
