@@ -17,8 +17,8 @@ namespace Core.ModelDto.Order
         public int? OrderStatus { get; set; }         // You can map this to an enum
         public int? PaymentStatus { get; set; }         // You can map this to an enum
         public string LocationName { get; set; } = string.Empty;
-        public int? Longitude { get; set; }        
-        public int? Latitude { get; set; }        
+        public double? Longitude { get; set; }        
+        public double? Latitude { get; set; }        
         public string Remarks { get; set; } = string.Empty;
         public bool IsActive { get; set; }
         public List<OrderItemRequestDto> OrderItems { get; set; } = new List<OrderItemRequestDto>();
